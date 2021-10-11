@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+    height: 73px;
+    width: 100%;
+    background-color: #009DE9;
+    color: white;
+}
+
+.footer {
+    min-height: 110px;
+    background-color: #009DE9;
+    color: white;
+    font-size: 1.5vw;
+}
+
+.footer .logo {
+    height: 1em;
+    margin: 15px;
+}
+
+.footer .post {
+    height: 3em;
+}
+
+.content .slider, .carousel img {
+    height: 50vw;
+    max-height: 758px;
+    background: url(files/slider1.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.content .mainStructure {
+    height: 150vw;
+    max-height: 900px;
+    background: linear-gradient(115.6deg, #3EB5F1 3.7%, #4E6FB3 59.81%, #3EB5F1 103.65%);
+}
+
+.content .item {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+    height: 20vw;
+    background-color: white;
+    border-radius: 30px;
+    font-size: 1.5vw;
+}
+
+.content .item img {
+    height: 3em;
+    width: auto;
+}
+
+.content a {
+    text-decoration: none;
+    color: black;
+}
+
+.content .structure {
+    height: 150vw;
+    max-height: 900px;
+    position: relative;
+    text-align: center;
+    padding: 30px;
+    background: url(./files/backgroundStructure.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.content .structure .back {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    width: 5vw;
+}
+
+.content .structure .home {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    width: 5vw;
+}
+
+.content .structure .item {
+    box-shadow: 5px 10px 20px darkgrey;
+}
+
+.content .structure span {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.content .structure p {
+    text-align: start;
+    margin: 10px 68px;
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .header {
+        height: 108px;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .content .mainStructure, .structure {
+        height: 150vw;
+        min-height: 1129px;
+    }
+}
