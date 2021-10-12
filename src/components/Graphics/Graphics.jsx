@@ -52,7 +52,7 @@ function Graphics({setLoading, setRequestError, loading}) {
                     if (arrOfAllId[i][j].priceUsd > max[i]) max[i] = Math.ceil(arrOfAllId[i][j].priceUsd)
                 }
                 arrOfAllId_Map[i] = arrOfAllId[i].map(el => (
-                    {name: el.date.slice(0, 10), uv: el.priceUsd}
+                    {name: el.date.slice(0, 10), usd: el.priceUsd}
                 ))
                 score++
             } else {
@@ -75,8 +75,7 @@ function Graphics({setLoading, setRequestError, loading}) {
             <YAxis type='number' domain={[0, max[i]]}/>
             <Tooltip/>
             <CartesianGrid stroke='#f5f5f5'/>
-            <Line type='monotone' dataKey='uv' stroke='#ff7300' yAxisId={0}/>
-            <Line type='monotone' dataKey='pv' stroke='#387908' yAxisId={1}/>
+            <Line type='monotone' dataKey='usd' stroke='#ff7300' yAxisId={0}/>
         </LineChart><br/>
     </div>))
 
