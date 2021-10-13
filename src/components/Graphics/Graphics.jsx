@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {CartesianGrid, Line, Tooltip, XAxis, LineChart, YAxis} from 'recharts'
 
 function Graphics({setLoading, setRequestError, loading}) {
     const [arrOfId, setArrOfId] = useState([])
     const [arrOfAllId, setArrOfAllId] = useState([])
+    const graphics = useRef()
 
     useEffect(() => {
         setLoading(true)
@@ -32,14 +33,17 @@ function Graphics({setLoading, setRequestError, loading}) {
                             .then(() => {
                                 setArrOfAllId(arrOfAllAboutId)
                             }).catch(err => console.log(err))
-                            .finally(() => setLoading(false))
+                            .finally(() => {
+                                setLoading(false)
+                                graphics.current.style.opacity = '1';
+                            })
                     })
             })
             .catch(() => {
                 setLoading(false)
                 setRequestError('Server error. Try again.')
             })
-    }, [])
+    },[])
 
     let arrOfAllId_Map = []
     let max = []
@@ -61,8 +65,7 @@ function Graphics({setLoading, setRequestError, loading}) {
         }
     }
 
-    let width = (window.innerWidth > 0) ? window.innerWidth : window.screen.width
-    width *= 0.95
+    let width = ((window.innerWidth > 0) ? window.innerWidth : window.screen.width)*0.96
 
     let arrOfAllId_Map_List = arrOfAllId_Map.map((el, i) => (el && <div key={i}>
         <h1>{arrOfId[i]}↓</h1>
@@ -79,7 +82,7 @@ function Graphics({setLoading, setRequestError, loading}) {
         </LineChart><br/>
     </div>))
 
-    return <div className='graphics'>
+    return <div className='graphics' ref={graphics}>
         {!loading && <div>
             <h2>Archive of prices for cryptocurrencies for a year (or since its creation if it is less than a year)</h2>
             <h4>Total currencies: {score}</h4><br/>

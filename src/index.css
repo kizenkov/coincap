@@ -25,3 +25,8 @@ code {
 .app h2, h3, h4 {
     text-align: center;
 }
+
+.graphics {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
