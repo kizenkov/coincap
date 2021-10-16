@@ -65,7 +65,9 @@ function Graphics({setLoading, setRequestError, loading}) {
         }
     }
 
-    let width = ((window.innerWidth > 0) ? window.innerWidth : window.screen.width)*0.96
+    let screenWidth = ((window.innerWidth > 0) ? window.innerWidth : window.screen.width)
+    let width = (screenWidth > 700) ? screenWidth*0.96 : 700
+
 
     let arrOfAllId_Map_List = arrOfAllId_Map.map((el, i) => (el && <div key={i}>
         <h1>{arrOfId[i]}↓</h1>
